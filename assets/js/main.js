@@ -3,6 +3,7 @@ if ("scrollRestoration" in history) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Navigation
   const navToggle = document.querySelector(".nav-toggle");
   const navMenu = document.querySelector(".nav-menu");
   const navLinks = document.querySelectorAll(".nav-link");
@@ -53,14 +54,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Project carousels
   document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     const images = Array.from(carousel.querySelectorAll(".project-carousel-image"));
-    const previousButton = carousel.querySelector("[data-carousel-previous]");
-    const nextButton = carousel.querySelector("[data-carousel-next]");
     const dots = Array.from(carousel.querySelectorAll(".carousel-dot"));
     let activeIndex = 0;
+    let autoplayId;
 
-    if (!previousButton || !nextButton || images.length < 2) return;
+    if (images.length < 2) return;
 
     const showSlide = (index) => {
       images[activeIndex].classList.remove("is-active");
@@ -73,19 +74,33 @@ document.addEventListener("DOMContentLoaded", () => {
       dots[activeIndex]?.setAttribute("aria-current", "true");
     };
 
-    previousButton.addEventListener("click", () => {
-      showSlide(activeIndex - 1);
-    });
-
-    nextButton.addEventListener("click", () => {
-      showSlide(activeIndex + 1);
-    });
-
     dots.forEach((dot, index) => {
       dot.addEventListener("click", () => {
         showSlide(index);
+        startAutoplay();
       });
     });
+
+    const stopAutoplay = () => {
+      window.clearInterval(autoplayId);
+    };
+
+    const startAutoplay = () => {
+      if (prefersReducedMotion) return;
+      stopAutoplay();
+      autoplayId = window.setInterval(() => {
+        showSlide(activeIndex + 1);
+      }, 5000);
+    };
+
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
+    carousel.addEventListener("focusin", stopAutoplay);
+    carousel.addEventListener("focusout", (event) => {
+      if (!carousel.contains(event.relatedTarget)) startAutoplay();
+    });
+
+    startAutoplay();
   });
 
   // Highlight the matching homepage section while scrolling.
@@ -110,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setActiveLink();
   window.addEventListener("scroll", setActiveLink, { passive: true });
 
+  // Scroll reveal animations
   prepareFadeIn(Array.from(document.querySelectorAll("main > .section:not(.hero)")), 0, 0);
   prepareFadeIn(Array.from(document.querySelectorAll(".project-card")), 0, 110);
   prepareFadeIn(Array.from(document.querySelectorAll(".skill-column")), 0, 90);
@@ -129,8 +145,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       },
       {
-        threshold: 0.16,
-        rootMargin: "0px 0px -8% 0px",
+        threshold: 0.08,
+        rootMargin: "0px 0px -2% 0px",
       }
     );
 
