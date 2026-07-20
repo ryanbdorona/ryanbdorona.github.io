@@ -53,6 +53,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+    const images = Array.from(carousel.querySelectorAll(".project-carousel-image"));
+    const previousButton = carousel.querySelector("[data-carousel-previous]");
+    const nextButton = carousel.querySelector("[data-carousel-next]");
+    const dots = Array.from(carousel.querySelectorAll(".carousel-dot"));
+    let activeIndex = 0;
+
+    if (!previousButton || !nextButton || images.length < 2) return;
+
+    const showSlide = (index) => {
+      images[activeIndex].classList.remove("is-active");
+      dots[activeIndex]?.classList.remove("is-active");
+      dots[activeIndex]?.removeAttribute("aria-current");
+
+      activeIndex = (index + images.length) % images.length;
+      images[activeIndex].classList.add("is-active");
+      dots[activeIndex]?.classList.add("is-active");
+      dots[activeIndex]?.setAttribute("aria-current", "true");
+    };
+
+    previousButton.addEventListener("click", () => {
+      showSlide(activeIndex - 1);
+    });
+
+    nextButton.addEventListener("click", () => {
+      showSlide(activeIndex + 1);
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showSlide(index);
+      });
+    });
+  });
+
   // Highlight the matching homepage section while scrolling.
   const setActiveLink = () => {
     if (!sections.length) return;

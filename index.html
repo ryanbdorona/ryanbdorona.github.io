@@ -67,7 +67,7 @@
           <p>I am especially interested in Laravel, React.js, PHP, MySQL, authentication flows, and administrative dashboards for organizations that need dependable digital tools.</p>
         </div>
         <div class="image-placeholder">
-          <img src="assets/img/picture%20portfolio.jpg" alt="Portrait of Ryan B. Dorona">
+          <img src="assets/img/landing_pic.jpg" alt="Portrait of Ryan B. Dorona">
         </div>
       </div>
     </section>
@@ -76,7 +76,7 @@
       <div class="container">
         <div class="section-heading projects-heading">
           <p class="eyebrow">Portfolio</p>
-          <h2>Selected Works</h2>
+          <h2>Projects</h2>
         </div>
         <div class="bento-grid">
           <article class="project-card project-card-featured">
@@ -86,34 +86,55 @@
             </div>
             <h3><a href="projects/manhis.html">MANHIS MIS - Maternal and Neonatal Healthcare Management System</a></h3>
             <p>Capstone project focusing on data management, authentication, and comprehensive admin modules for healthcare efficiency.</p>
-            <div class="project-visual project-visual-dashboard" aria-hidden="true">
-              <div class="visual-screen">
-                <span></span><span></span><span></span>
+            <div class="project-carousel" data-carousel aria-label="MANHIS MIS interface previews">
+              <img class="project-carousel-image is-active" src="assets/img/mahnis_1.png" alt="MANHIS MIS dashboard interface">
+              <img class="project-carousel-image" src="assets/img/manhis_2.png" alt="MANHIS MIS records interface">
+              <div class="carousel-controls">
+                <button class="carousel-control" type="button" data-carousel-previous aria-label="Show previous MANHIS MIS preview">&larr;</button>
+                <button class="carousel-control" type="button" data-carousel-next aria-label="Show next MANHIS MIS preview">&rarr;</button>
+              </div>
+              <div class="carousel-pagination" aria-label="MANHIS MIS screenshots">
+                <button class="carousel-dot is-active" type="button" aria-label="Show MANHIS MIS screenshot 1" aria-current="true"></button>
+                <button class="carousel-dot" type="button" aria-label="Show MANHIS MIS screenshot 2"></button>
               </div>
             </div>
           </article>
 
-          <article class="project-card project-card-compact">
+          <article class="project-card project-card-compact project-card-private">
             <div class="project-card-top">
-              <span class="badge">In Progress</span>
-              <div class="tag-list"><span>React.js</span></div>
+              <p class="card-meta">Full-Stack Developer</p>
+              <span class="badge">Private Project</span>
             </div>
-            <h3><a href="projects/yunhaverse.html">YUNHAverse Philippines</a></h3>
-            <p>A web project currently under active development, utilizing a modern Laravel and React.js stack.</p>
-            <div class="project-visual project-visual-code" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
+            <h3><a href="projects/cornersteel.html">Cornersteel Internship - Cooperative Loaning System</a></h3>
+            <p>Contributed to a private cooperative loaning system during my internship at Cornersteel Systems Corporation.</p>
+            <div class="tag-list"><span>Laravel</span><span>Next.js</span><span>MySQL</span></div>
+            <div class="private-project-status">
+              <span aria-hidden="true">&#128274;</span>
+              <p>Preview unavailable to protect confidential company and member data.</p>
             </div>
-            <div class="tag-list"><span>Laravel</span></div>
           </article>
 
-          <article class="project-card project-card-wide">
+          <article class="project-card project-card-wide project-card-yunhaverse">
             <div>
-              <div class="tag-list"><span>Laravel</span><span>Next.js</span><span>OAuth</span><span>SMTP</span></div>
-              <h3><a href="projects/cornersteel.html">Cornersteel Internship - Auth System</a></h3>
-              <p>Implemented critical security infrastructure including SMTP email verification and Google OAuth login integration on a professional Laravel + Next.js template during my tenure at Cornersteel Systems Corporation.</p>
+              <div class="project-card-top">
+                <p class="card-meta">Full-Stack Developer</p>
+                <span class="badge">In Progress</span>
+              </div>
+              <h3><a href="projects/yunhaverse.html">YUNHAverse Philippines</a></h3>
+              <p>A web project currently under active development, utilizing a modern Laravel and React.js stack.</p>
+              <div class="tag-list"><span>React.js</span><span>Laravel</span><span>Fan Community</span><span>Responsive Design</span></div>
             </div>
-            <div class="project-visual project-visual-network" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
+            <div class="project-carousel project-carousel-yunhaverse" data-carousel aria-label="YUNHAverse Philippines interface previews">
+              <img class="project-carousel-image is-active" src="assets/img/yunhaverse.png" alt="YUNHAverse Philippines interface preview">
+              <img class="project-carousel-image" src="assets/img/yunhaverse_2.png" alt="YUNHAverse Philippines alternate interface preview">
+              <div class="carousel-controls">
+                <button class="carousel-control" type="button" data-carousel-previous aria-label="Show previous YUNHAverse preview">&larr;</button>
+                <button class="carousel-control" type="button" data-carousel-next aria-label="Show next YUNHAverse preview">&rarr;</button>
+              </div>
+              <div class="carousel-pagination" aria-label="YUNHAverse screenshots">
+                <button class="carousel-dot is-active" type="button" aria-label="Show YUNHAverse screenshot 1" aria-current="true"></button>
+                <button class="carousel-dot" type="button" aria-label="Show YUNHAverse screenshot 2"></button>
+              </div>
             </div>
           </article>
         </div>
@@ -132,7 +153,7 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C7.58 3 4 4.57 4 6.5v11C4 19.43 7.58 21 12 21s8-1.57 8-3.5v-11C20 4.57 16.42 3 12 3Zm0 2c3.67 0 5.81 1.07 6 1.5-.19.43-2.33 1.5-6 1.5S6.19 6.93 6 6.5C6.19 6.07 8.33 5 12 5Zm0 6c-2.4 0-4.52-.45-6-1.2V7.5C7.46 8.42 9.64 9 12 9s4.54-.58 6-1.5v2.3c-1.48.75-3.6 1.2-6 1.2Zm0 4c-2.4 0-4.52-.45-6-1.2v-2c1.46.74 3.58 1.2 6 1.2s4.54-.46 6-1.2v2c-1.48.75-3.6 1.2-6 1.2Zm0 4c-3.67 0-5.81-1.07-6-1.5v-1.7c1.46.74 3.58 1.2 6 1.2s4.54-.46 6-1.2v1.7c-.19.43-2.33 1.5-6 1.5Z"/></svg>
               Backend
             </h3>
-            <ul><li>Laravel</li><li>PHP</li><li>MySQL</li><li>REST APIs</li></ul>
+            <ul><li>Laravel</li><li>PHP</li><li>MySQL</li></ul>
           </div>
           <div class="skill-column">
             <h3>

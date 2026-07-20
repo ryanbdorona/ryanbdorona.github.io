@@ -554,6 +554,34 @@ li + li {
   min-height: 360px;
 }
 
+.project-card-wide.project-card-yunhaverse {
+  grid-template-columns: minmax(0, 0.8fr) minmax(420px, 1.2fr);
+  min-height: 430px;
+}
+
+.project-card-yunhaverse .project-carousel {
+  height: 100%;
+  min-height: 360px;
+  margin-top: 0;
+}
+
+.project-card-private {
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 290px;
+}
+
+.project-card-compact.project-card-private {
+  display: flex;
+  flex-direction: column;
+  min-height: 480px;
+}
+
+.project-card-compact.project-card-private .project-card-top {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
 .project-card h3 {
   margin-bottom: 1rem;
   font-size: clamp(1.25rem, 2vw, 1.5rem);
@@ -725,6 +753,118 @@ li + li {
     0 66px 0 rgba(248, 250, 252, 0.14);
   content: "";
   transform: rotate(-10deg);
+}
+
+.project-carousel {
+  position: relative;
+  height: 240px;
+  margin-top: 2rem;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #e2e8f0;
+}
+
+.project-carousel-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 260ms ease;
+}
+
+.project-carousel-image.is-active {
+  opacity: 1;
+}
+
+.carousel-controls {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.carousel-control {
+  display: inline-grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  padding: 0;
+  min-height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--off-white);
+  font: inherit;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.carousel-control:hover,
+.carousel-control:focus-visible {
+  background: var(--navy);
+  transform: translateY(-2px);
+}
+
+.carousel-pagination {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(248, 250, 252, 0.55);
+  cursor: pointer;
+  transition: width 180ms ease, background 180ms ease;
+}
+
+.carousel-dot.is-active {
+  width: 22px;
+  background: var(--surface);
+}
+
+.project-carousel-detail {
+  height: min(62vw, 620px);
+  max-height: 620px;
+  margin-top: 0;
+}
+
+.private-project-note {
+  margin-bottom: 0;
+  color: var(--slate-warm);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.private-project-status {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #f8fafc;
+}
+
+.private-project-status span {
+  font-size: 1.15rem;
+}
+
+.private-project-status p {
+  margin: 0;
+  font-size: 0.88rem;
 }
 
 .project-visual-network::before {
@@ -1029,6 +1169,16 @@ li + li {
   .project-card-wide {
     grid-template-columns: 1fr;
     min-height: auto;
+  }
+
+  .project-card-wide.project-card-yunhaverse {
+    min-height: auto;
+  }
+
+  .project-card-yunhaverse .project-carousel {
+    order: -1;
+    height: 240px;
+    min-height: 240px;
   }
 
   .project-visual-network {
